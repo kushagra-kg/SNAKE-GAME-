@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="snake.js "></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
         * {
@@ -88,15 +89,15 @@
         <canvas id="mycanvas"></canvas>
         <div id="introScreen">
             <h1>Snake Game</h1>
-            <button type="button" class="btn btn-dark btn-lg" padding="5px" onclick="startGame()">Start</button>
+            <button type="button" id="strt" class="btn btn-dark btn-lg" padding="5px" onclick="startGame()">Start</button>
         </div>
         <div id="EndScreen">
             <h1 id="finalscore">Score:</h1>
-            <button type="button" class="btn btn-dark btn-lg" padding="5px" onclick="replay()">Play Again</button>
+            <button type="button" id="end" class="btn btn-dark btn-lg" padding="5px" onclick="replay()">Play Again</button>
         </div>
     </div>
 
-    <script src="snake.js "></script>
+
 
 </body>
 

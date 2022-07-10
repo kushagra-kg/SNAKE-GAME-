@@ -66,16 +66,16 @@ function init() {
             console.log("Updating snake");
 
             var nextX, nextY;
-            if (this.direction == ("right" || "d")) {
+            if (this.direction == ("right")) {
                 nextX = headX + 1;
                 nextY = headY;
-            } else if (this.direction == ("left" || "a")) {
+            } else if (this.direction == ("left")) {
                 nextX = headX - 1;
                 nextY = headY;
-            } else if (this.direction == ("down" || "s")) {
+            } else if (this.direction == ("down")) {
                 nextX = headX;
                 nextY = headY + 1;
-            } else if (this.direction == ("up" || "w")) {
+            } else if (this.direction == ("up")) {
                 nextX = headX;
                 nextY = headY - 1;
             }
@@ -104,18 +104,19 @@ function init() {
     snake.createSnake();
 
     function keyPressed(e) {
-        if (e.key == "ArrowRight") {
+        // e = e || window.event;
+        if (e.key == "ArrowRight" || e.keyCode == 68) {
             if (snake.direction != "left") snake.direction = "right";
-        } else if (e.key == "ArrowLeft") {
+        } else if (e.key == "ArrowLeft" || e.keyCode == 65) {
             if (snake.direction != "right") snake.direction = "left";
-        } else if (e.key == "ArrowDown") {
+        } else if (e.key == "ArrowDown" || e.keyCode == 83) {
             if (snake.direction != "up") snake.direction = "down";
-        } else if (e.key == "ArrowUp") {
+        } else if (e.key == "ArrowUp" || e.keyCode == 87) {
             if (snake.direction != "down") snake.direction = "up";
         }
     }
-
-    document.addEventListener('keydown', keyPressed);
+    document.onkeydown = keyPressed
+        // document.addEventListener('keydown', keyPressed);
 }
 
 function draw() {
@@ -184,3 +185,19 @@ function startGame() {
 
     f = setInterval(gameloop, 95);
 }
+
+strt = false;
+
+document.addEventListener("keypress", function(event) {
+    if (event.key === "Enter" || event.code === "Space") {
+        event.preventDefault();
+        if (strt == false) {
+            document.getElementById("strt").click();
+            strt = true;
+        }
+        if (strt == true && game_over == true) {
+            document.getElementById("end").click();
+            strt = false;
+        }
+    }
+});
